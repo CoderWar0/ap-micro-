@@ -138,6 +138,8 @@
 
   /* ── TABS ── */
   .tabs-wrap {
+    align-items: center;
+    justify-content: center;
     background: var(--cream);
     border-bottom: 2px solid var(--border);
     padding: 0 2rem;
@@ -186,6 +188,7 @@
 
   /* ── SECTION HEADERS ── */
   .section-header {
+    justify-content: center;
     display: flex;
     align-items: baseline;
     gap: 1rem;
@@ -601,28 +604,29 @@
 <div class="hero">
   <div class="hero-tag">May 4, 2026 · AP Exam Prep</div>
   <h1>AP <em>Microeconomics</em><br>Practice Exam</h1>
-  <p>Aligned to the 2026 College Board CED. All 6 units covered with authentic MCQ and FRQ practice.</p>
+  <!--<p>Aligned to the 2026 College Board CED. All 6 units covered with authentic MCQ and FRQ practice.</p> -->
   <div class="hero-stats">
-    <div class="stat-pill"><strong>60</strong> MCQ Practice Questions</div>
-    <div class="stat-pill"><strong>6</strong> FRQ Prompts</div>
+    <div class="stat-pill"><strong>60</strong> Practice Questions</div>
+    <div class="stat-pill"><strong>6</strong> Prompts</div>
     <div class="stat-pill"><strong>6</strong> Units Covered</div>
-    <div class="stat-pill"><strong>66% / 33%</strong> MCQ / FRQ Split</div>
+    <!--div class="stat-pill"><strong>66% / 33%</strong> MCQ / FRQ Split</div> -->
   </div>
 </div>
 
 <div class="tabs-wrap">
-  <button class="tab-btn active" onclick="showTab('mcq')">MCQ (60 Qs)</button>
-  <button class="tab-btn" onclick="showTab('frq')">FRQ (6 Prompts)</button>
+  <button class="tab-btn active" onclick="showTab('mcq')">Multiple Choice Practice</button>
+  <button class="tab-btn" onclick="showTab('frq')">Free Response Practice</button>
   <button class="tab-btn" onclick="showTab('guide')">Study Guide</button>
   <button class="tab-btn" onclick="showTab('formulas')">Formula Sheet</button>
 </div>
 
 <!-- ══ MCQ PANEL ══ -->
 <div id="panel-mcq" class="panel active">
+  <!--
   <div class="section-header">
     <h2>Multiple Choice Practice</h2>
-    <span class="sub">Click an answer to check · Shuffle to randomize order</span>
   </div>
+  -->
 
   <div id="score-bar" class="score-bar">
     <div class="score-item">
@@ -662,19 +666,23 @@
 
 <!-- ══ FRQ PANEL ══ -->
 <div id="panel-frq" class="panel">
+<!--
   <div class="section-header">
     <h2>Free Response Practice</h2>
     <span class="sub">1 Long FRQ (10 pts) + 2 Short FRQs (5 pts each) — write answers, then reveal rubric</span>
   </div>
+-->
   <div id="frq-container"></div>
 </div>
 
 <!-- ══ STUDY GUIDE PANEL ══ -->
 <div id="panel-guide" class="panel">
+  <!--
   <div class="section-header">
     <h2>Unit-by-Unit Study Guide</h2>
     <span class="sub">Exam weight percentages from the 2026 College Board CED</span>
   </div>
+-->
   <div class="unit-grid" id="guide-grid"></div>
   <div class="tip-box" style="margin-top:1.75rem">
     <h4>🎯 Top Exam Tips for May 4, 2026</h4>
@@ -692,10 +700,12 @@
 
 <!-- ══ FORMULA SHEET PANEL ══ -->
 <div id="panel-formulas" class="panel">
+  <!--
   <div class="section-header">
     <h2>Key Formulas &amp; Concepts</h2>
     <span class="sub">Memorize these cold — they appear in both MCQ and FRQ</span>
   </div>
+  -->
   <div class="formula-grid" id="formula-grid"></div>
 </div>
 
