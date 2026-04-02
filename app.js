@@ -190,17 +190,32 @@ function renderFormulas() {
   });
 }
 
+function renderGraphs() {
+  const grid = document.getElementById('graph-grid');
+  if (!grid) return;
+  graphData.forEach(g => {
+    const card = document.createElement('div');
+    card.className = 'formula-card';
+    card.innerHTML = `
+      <div class="fname">${g.title}</div>
+      <div class="fdesc">${g.desc}</div>`;
+    grid.appendChild(card);
+  });
+}
+
 // ══════════════════════════════════════════
 //  TABS
 // ══════════════════════════════════════════
 function showTab(tab) {
+  tab = tab.toLowerCase();
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-'+tab).classList.add('active');
+  const panel = document.getElementById('panel-'+tab);
+  if (panel) panel.classList.add('active');
   const tabBtns = document.querySelectorAll('.tab-btn');
   const navBtns = document.querySelectorAll('.nav-links button');
-  const tabMap = { mcq:0, frq:1, guide:2, formulas:3 };
+  const tabMap = { mcq:0, frq:1, guide:2, formulas:3, graphs:4 };
   const i = tabMap[tab];
   if (tabBtns[i]) tabBtns[i].classList.add('active');
   if (navBtns[i]) navBtns[i].classList.add('active');
@@ -225,3 +240,4 @@ renderMCQ();
 renderFRQ();
 renderGuide();
 renderFormulas();
+renderGraphs();

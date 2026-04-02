@@ -235,6 +235,10 @@ const formulas = [
   { name:"Opportunity Cost", expr:"OC of Good A = units of Good B given up", desc:"From PPC: OC of A = (units B) / (units A). Always think in terms of what is given up." }
 ];
 
+const graphData = [
+ 
+];
+
 const guideData = [
   { unit:1, concepts:UNIT_CONCEPTS[1] },
   { unit:2, concepts:UNIT_CONCEPTS[2] },
