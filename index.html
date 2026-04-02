@@ -6,89 +6,101 @@
 <title>AP Microeconomics 2026 — Practice Exam</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
+<div id="login-screen" style="max-width: 400px; margin: 4rem auto; padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.1); text-align: center;">
+  <h2 style="color: var(--primary);">Student Login</h2>
+  <p style="color: var(--muted); margin-bottom: 1.5rem;">Enter your Student ID to access the AP Micro Exams.</p>
+  <input type="password" id="student-id-input" placeholder="Student ID" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 2px solid var(--border); border-radius: 8px;">
+  <button onclick="attemptLogin()" class="btn-primary" style="width: 100%;">Log In</button>
+  <p id="login-error" style="color: var(--red); display: none; margin-top: 1rem;">Invalid ID. Please try again.</p>
+</div>
+
+<div id="main-app" style="display: none;">
+
   <div class="hero">
-  <div class="hero-tag">May 4, 2026 · AP Exam Prep</div>
-  <h1>AP <em>Microeconomics</em><br>Practice Exam</h1>
-  <div class="hero-stats">
-    <div class="stat-pill"><strong>60</strong> Practice Questions</div>
-    <div class="stat-pill"><strong>6</strong> Prompts</div>
-    <div class="stat-pill"><strong>6</strong> Units Covered</div>
+    <div class="hero-tag">May 4, 2026 · AP Exam Prep</div>
+    <h1>AP <em>Microeconomics</em><br>Practice Exam</h1>
+    <div class="hero-stats">
+      <div class="stat-pill"><strong>60</strong> Practice Questions</div>
+      <div class="stat-pill"><strong>6</strong> Prompts</div>
+      <div class="stat-pill"><strong>6</strong> Units Covered</div>
     </div>
-</div>
-
-<div class="tabs-wrap">
-  <button class="tab-btn active" onclick="showTab('mcq')">Multiple Choice Practice</button>
-  <button class="tab-btn" onclick="showTab('frq')">Free Response Practice</button>
-  <button class="tab-btn" onclick="showTab('guide')">Study Guide</button>
-  <button class="tab-btn" onclick="showTab('formulas')">Formula Sheet</button>
-  <button class="tab-btn" onclick="showTab('graphs')">Graphs</button>
-</div>
-
-<div id="panel-mcq" class="panel active">
-  <div class="controls-bar">
-    <label style="font-size:0.82rem;font-weight:700;color:#444;">Filter by Unit:</label>
-    <button class="filter-btn active" onclick="filterMCQ('all',this)">All Units</button>
-    <button class="filter-btn" onclick="filterMCQ(1,this)">Unit 1</button>
-    <button class="filter-btn" onclick="filterMCQ(2,this)">Unit 2</button>
-    <button class="filter-btn" onclick="filterMCQ(3,this)">Unit 3</button>
-    <button class="filter-btn" onclick="filterMCQ(4,this)">Unit 4</button>
-    <button class="filter-btn" onclick="filterMCQ(5,this)">Unit 5</button>
-    <button class="filter-btn" onclick="filterMCQ(6,this)">Unit 6</button>
-    <button class="btn-primary" style="margin-left:auto" onclick="shuffleMCQ()">🔀 Shuffle</button>
   </div>
 
-  <div id="mcq-container"></div>
-</div>
-
-<div id="panel-frq" class="panel">
-<div id="frq-container"></div>
-</div>
-
-<div id="panel-guide" class="panel">
-  <div class="unit-grid" id="guide-grid"></div>
-  <div class="tip-box" style="margin-top:1.75rem">
-    <h4>🎯 Top Exam Tips for May 4, 2026</h4>
-    <ul style="padding-left:1.2rem;font-size:0.88rem;line-height:1.8">
-      <li><strong>Draw graphs every time.</strong> Nearly every FRQ requires a correctly labeled graph (S/D, Cost Curves, MR/MC). Practice drawing them fast.</li>
-      <li><strong>Label axes.</strong> Unlabeled axes cost you points even if the shape is correct.</li>
-      <li><strong>Know the "why."</strong> MCQ frequently asks you to explain *why* a curve shifts, not just which direction.</li>
-      <li><strong>Use MR = MC rule</strong> for ALL profit-maximizing firms — perfect competition, monopoly, monopolistic competition, and oligopoly.</li>
-      <li><strong>Factor markets mirror product markets.</strong> MRP = MFC is just MR = MC applied to inputs.</li>
-      <li><strong>Government intervention = deadweight loss.</strong> Taxes, price floors/ceilings, monopoly — all create DWL triangles.</li>
-      <li><strong>A four-function calculator is permitted.</strong> Practice PED, PES, and TR/TC/profit calculations by hand.</li>
-    </ul>
+  <div class="tabs-wrap">
+    <button class="tab-btn active" onclick="showTab('mcq')">Multiple Choice Practice</button>
+    <button class="tab-btn" onclick="showTab('frq')">Free Response Practice</button>
+    <button class="tab-btn" onclick="showTab('guide')">Study Guide</button>
+    <button class="tab-btn" onclick="showTab('formulas')">Formula Sheet</button>
+    <button class="tab-btn" onclick="showTab('graphs')">Graphs</button>
   </div>
-</div>
 
-<div id="panel-formulas" class="panel">
-  <div class="formula-grid" id="formula-grid"></div>
-</div>
+  <div id="panel-mcq" class="panel active">
+    <div class="controls-bar">
+      <label style="font-size:0.82rem;font-weight:700;color:#444;">Filter by Unit:</label>
+      <button class="filter-btn active" onclick="filterMCQ(1,this)">Unit 1</button>
+      <button class="filter-btn" onclick="filterMCQ(2,this)">Unit 2</button>
+      <button class="filter-btn" onclick="filterMCQ(3,this)">Unit 3</button>
+      <button class="filter-btn" onclick="filterMCQ(4,this)">Unit 4</button>
+      <button class="filter-btn" onclick="filterMCQ(5,this)">Unit 5</button>
+      <button class="filter-btn" onclick="filterMCQ(6,this)">Unit 6</button>
+    </div>
 
-<div id="panel-graphs" class="panel">
-  <div class="section-header">
-    <h2>Graph Review</h2>
-    <div class="sub">Key AP Micro graphs with labels, shifts, and exam strategy.</div>
+    <div id="mcq-container"></div>
+    
+    <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid var(--border);">
+      <button id="submit-btn" onclick="finishAndSubmitExam(event)" class="btn-primary" style="background-color: var(--green); padding: 1rem 2rem; font-size: 1.1rem;">
+        ✅ Submit Exam Score
+      </button>
+    </div>
   </div>
-  <div class="formula-grid" id="graph-grid"></div>
-  <div class="graph-placeholder">
-    <img src="images/Graph unit 1.png" alt="Graph 1">
-    <img src="images/Graph unit 2.png" alt="Graph 2">
-    <img src="images/Graph unit 3.png" alt="Graph 3">
-    <img src="images/Graph unit 4.png" alt="Graph 4">
-    <img src="images/Graph unit 5.png" alt="Graph 5">
-    <img src="images/Graph unit 6.png" alt="Graph 6">
 
+  <div id="panel-frq" class="panel">
+    <div id="frq-container"></div>
   </div>
-</div>
 
-<div class="toast" id="toast"></div>
+  <div id="panel-guide" class="panel">
+    <div class="unit-grid" id="guide-grid"></div>
+    <div class="tip-box" style="margin-top:1.75rem">
+      <h4>🎯 Top Exam Tips for May 4, 2026</h4>
+      <ul style="padding-left:1.2rem;font-size:0.88rem;line-height:1.8">
+        <li><strong>Draw graphs every time.</strong> Nearly every FRQ requires a correctly labeled graph (S/D, Cost Curves, MR/MC). Practice drawing them fast.</li>
+        <li><strong>Label axes.</strong> Unlabeled axes cost you points even if the shape is correct.</li>
+        <li><strong>Know the "why."</strong> MCQ frequently asks you to explain *why* a curve shifts, not just which direction.</li>
+        <li><strong>Use MR = MC rule</strong> for ALL profit-maximizing firms — perfect competition, monopoly, monopolistic competition, and oligopoly.</li>
+        <li><strong>Factor markets mirror product markets.</strong> MRP = MFC is just MR = MC applied to inputs.</li>
+        <li><strong>Government intervention = deadweight loss.</strong> Taxes, price floors/ceilings, monopoly — all create DWL triangles.</li>
+        <li><strong>A four-function calculator is permitted.</strong> Practice PED, PES, and TR/TC/profit calculations by hand.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="panel-formulas" class="panel">
+    <div class="formula-grid" id="formula-grid"></div>
+  </div>
+
+  <div id="panel-graphs" class="panel">
+    <div class="section-header">
+      <h2>Graph Review</h2>
+      <div class="sub">Key AP Micro graphs with labels, shifts, and exam strategy.</div>
+    </div>
+    <div class="formula-grid" id="graph-grid"></div>
+    <div class="graph-placeholder">
+      <img src="images/Graph unit 1.png" alt="Graph 1">
+      <img src="images/Graph unit 2.png" alt="Graph 2">
+      <img src="images/Graph unit 3.png" alt="Graph 3">
+      <img src="images/Graph unit 4.png" alt="Graph 4">
+      <img src="images/Graph unit 5.png" alt="Graph 5">
+      <img src="images/Graph unit 6.png" alt="Graph 6">
+    </div>
+  </div>
+
+</div> <div class="toast" id="toast"></div>
 
 <script src="data.js"></script>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 
 </body>
 </html>
